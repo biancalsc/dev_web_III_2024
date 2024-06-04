@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import routes from "./routes";
 import { connect } from "./database/connection";
+
 dotenv.config();
 
 // será usado 3000 se a variável de ambiente não tiver sido definida
@@ -16,12 +17,11 @@ app.use(express.json());
 // configura o servidor para receber requisições de qualquer domínio
 app.use(cors());
 
-// conecta ao MongoDB no início da aplicação
 connect();
 
 // inicializa o servidor na porta especificada
 app.listen(PORT, () => {
-    console.log(`Rodando na porta ${PORT}...`);
+  console.log(`Rodando na porta ${PORT}...`);
 });
 
 // define a rota para o pacote /routes
